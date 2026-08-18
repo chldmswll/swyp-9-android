@@ -1,5 +1,6 @@
 package com.swyp9.android.presentation.mission.select
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -11,12 +12,14 @@ import com.swyp9.android.core.common.state.UiState
 
 @Composable
 fun MissionSelectRoute(
+    paddingValues: PaddingValues,
     modifier: Modifier = Modifier,
     viewModel: MissionSelectViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     MissionSelectScreen(
+        paddingValues = paddingValues,
         uiState = uiState,
         modifier = modifier,
     )
@@ -24,6 +27,7 @@ fun MissionSelectRoute(
 
 @Composable
 fun MissionSelectScreen(
+    paddingValues: PaddingValues,
     uiState: UiState<MissionSelectState>,
     modifier: Modifier = Modifier,
 ) {
