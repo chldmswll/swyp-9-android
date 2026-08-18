@@ -1,6 +1,8 @@
 package com.swyp9.android.presentation.mission.photo
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -11,12 +13,14 @@ import com.swyp9.android.core.common.state.UiState
 
 @Composable
 fun PhotoPickerRoute(
+    paddingValues : PaddingValues,
     modifier: Modifier = Modifier,
     viewModel: PhotoPickerViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     PhotoPickerScreen(
+        paddingValues = paddingValues,
         uiState = uiState,
         modifier = modifier,
     )
@@ -24,9 +28,10 @@ fun PhotoPickerRoute(
 
 @Composable
 fun PhotoPickerScreen(
+    paddingValues : PaddingValues,
     uiState: UiState<PhotoPickerState>,
     modifier: Modifier = Modifier,
 ) {
     // TODO: uiState 분기 처리(Loading / Empty / Error / Success) 및 실제 UI 구현
-    Text(text = "사진 선택·확인", modifier = modifier.fillMaxSize())
+    Text(text = "사진 선택·확인", modifier = modifier.padding(paddingValues = paddingValues))
 }

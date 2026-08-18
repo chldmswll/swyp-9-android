@@ -1,4 +1,4 @@
-package com.swyp9.android.presentation.record.list
+package com.swyp9.android.presentation.record
 
 import androidx.lifecycle.ViewModel
 import com.swyp9.android.core.common.state.UiState
@@ -9,12 +9,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class RecordListViewModel @Inject constructor(
+class RecordViewModel @Inject constructor(
     // TODO: Repository 등 의존성 주입
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow<UiState<RecordListState>>(UiState.Loading)
-    val uiState: StateFlow<UiState<RecordListState>> = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow<UiState<RecordState>>(UiState.Loading)
+    val uiState: StateFlow<UiState<RecordState>> = _uiState.asStateFlow()
 
     // TODO: 데이터 로드 로직 구현
 }

@@ -1,6 +1,8 @@
-package com.swyp9.android.presentation.missionhome
+package com.swyp9.android.presentation.record
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -10,23 +12,31 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.swyp9.android.core.common.state.UiState
 
 @Composable
-fun MissionHomeRoute(
+fun RecordRoute(
+    paddingValues: PaddingValues,
     modifier: Modifier = Modifier,
-    viewModel: MissionHomeViewModel = hiltViewModel(),
+    viewModel: RecordViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    MissionHomeScreen(
+    RecordScreen(
+        paddingValues = paddingValues,
         uiState = uiState,
         modifier = modifier,
     )
 }
 
 @Composable
-fun MissionHomeScreen(
-    uiState: UiState<MissionHomeState>,
+fun RecordScreen(
+    paddingValues: PaddingValues,
+    uiState: UiState<RecordState>,
     modifier: Modifier = Modifier,
 ) {
     // TODO: uiState 분기 처리(Loading / Empty / Error / Success) 및 실제 UI 구현
-    Text(text = "미션 홈", modifier = modifier.fillMaxSize())
+    Text(
+        text = "기록 목록",
+        modifier = modifier
+            .fillMaxSize()
+            .padding(paddingValues),
+    )
 }
